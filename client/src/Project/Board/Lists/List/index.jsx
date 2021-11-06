@@ -22,7 +22,8 @@ const defaultProps = {
 
 const ProjectBoardList = ({ status, project, filters, currentUserId }) => {
   const filteredIssues = filterIssues(project.issues, filters, currentUserId);
-  const filteredListIssues = getSortedListIssues(filteredIssues, status);
+  const filteredListIssues11 = getSortedListIssues(filteredIssues, status);
+  const filteredListIssues = getReorderedListIssues(filteredListIssues11);
   const allListIssues = getSortedListIssues(project.issues, status);
 
   return (
@@ -70,6 +71,21 @@ const filterIssues = (projectIssues, filters, currentUserId) => {
 
 const getSortedListIssues = (issues, status) =>
   issues.filter(issue => issue.status === status).sort((a, b) => a.listPosition - b.listPosition);
+
+  const getReorderedListIssues = (data) => {
+    data.map((e) => {
+  
+        if(e.type === "story")
+            e.type_no = 1;
+        else if (e.type  == "bug")
+            e.type_no = 2;
+            else if (e.type  == "task")
+            e.type_no = 3;
+    });
+  
+    return data.sort((a,b) => (a.type_no) - (b.type_no));
+    }
+  
 
 const formatIssuesCount = (allListIssues, filteredListIssues) => {
   if (allListIssues.length !== filteredListIssues.length) {
