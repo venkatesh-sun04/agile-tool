@@ -31,15 +31,15 @@ export const Issue = styled.div`
   ${props =>
     props.status === 'task'
       ? css`
-          border: 2px solid #cf3d28 ; 
+          border: 2px solid #2e80aa ; 
         `
       : props.status === 'bug'
       ? css`
-          border: 2px solid #e58f30;
+          border: 2px solid #cf3d28;
         `
       : props.status === 'story'
       ? css`
-          border: 2px solid #2e80aa;
+          border: 2px solid green;
         `
       : ``}
 `;
