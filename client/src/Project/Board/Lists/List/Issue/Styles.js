@@ -28,6 +28,20 @@ export const Issue = styled.div`
       transform: rotate(3deg);
       box-shadow: 5px 10px 30px 0px rgba(9, 30, 66, 0.15);
     `}
+  ${props =>
+    props.status === 'task'
+      ? css`
+          border: 2px solid #cf3d28 ; 
+        `
+      : props.status === 'bug'
+      ? css`
+          border: 2px solid #e58f30;
+        `
+      : props.status === 'story'
+      ? css`
+          border: 2px solid #2e80aa;
+        `
+      : ``}
 `;
 
 export const Title = styled.p`
