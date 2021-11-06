@@ -28,7 +28,7 @@ const ProjectBoardListIssue = ({ projectUsers, issue, index }) => {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          <Issue isBeingDragged={snapshot.isDragging && !snapshot.isDropAnimating}>
+          <Issue isBeingDragged={snapshot.isDragging && !snapshot.isDropAnimating} status={issue.type}>
             <Title>{issue.title}</Title>
             <Bottom>
               <div>
