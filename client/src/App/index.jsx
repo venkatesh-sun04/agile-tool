@@ -10,6 +10,8 @@ import Routes from './Routes';
 // https://github.com/styled-components/styled-components/issues/1593
 import './fontStyles.css';
 
+//Root component of client app
+
 const App = () => (
   <Fragment>
     <NormalizeStyles />
