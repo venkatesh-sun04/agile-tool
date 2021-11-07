@@ -25,6 +25,7 @@ const Toast = () => {
       pubsub.off('toast', addToast);
     };
   }, []);
+  // This is React appl
 
   const removeToast = id => {
     setToasts(currentToasts => currentToasts.filter(toast => toast.id !== id));
