@@ -32,5 +32,7 @@ export const generateErrors = (fieldValues, fieldValidators) => {
       }
     });
   });
+  console.log('validation file');
+
   return errors;
 };
