@@ -8,20 +8,12 @@ import { Redirect } from "react-router";
 
 const routeIndex = () => {
     let sample = useHistory();
-    const [auth,setAuth] = useState(false);
-    if(auth){
-        return <Redirect to ='/settings' />
-    
-    }
-        return (
+            return (
         <div>
             <Breadcrumbs items={['Projects', 'singularity 1.0', 'Pages']} />
             <form>
             <FormButton onClick={()=>sample.push('/project/board')}>Kanban Board</FormButton>
             <FormButton onClick={()=>sample.push('/project/settings')}>Project Setting</FormButton>
-
-            {/* <FormButton onClick={()=>setAuth(true)} >Project Setting</FormButton> */}
-
             </form>
         </div>
     )
