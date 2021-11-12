@@ -16,7 +16,9 @@ import AssigneesReporter from './AssigneesReporter';
 import Priority from './Priority';
 import EstimateTracking from './EstimateTracking';
 import Dates from './Dates';
+import { formatDateTimeConversational } from 'shared/utils/dateTime';
 import { TopActions, TopActionsRight, Content, Left, Right } from './Styles';
+import './TableSty.css' ;
 
 const propTypes = {
   issueId: PropTypes.string.isRequired,
@@ -53,6 +55,10 @@ const ProjectBoardIssueDetails = ({
       },
     });
   };
+  // console.log(issue);
+  // const dataaa = issue.users;
+  const assignees = issue.users.map((e)=>e.name);
+    // console.log(assignees);
 
   return (
     <Fragment>
@@ -78,11 +84,64 @@ const ProjectBoardIssueDetails = ({
           <Comments issue={issue} fetchIssue={fetchIssue} />
         </Left>
         <Right>
-          <Status issue={issue} updateIssue={updateIssue} />
+        
+        <table id="customers">
+          <thead>
+          <tr>
+          <th>S.NO</th>
+         <th>PROPERTY</th>
+         <th>DETAILS</th>
+         </tr>
+         </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td>Status</td>
+              <td>{issue.status}</td>
+            </tr>
+              <tr>
+              <td></td>
+                <td>Assignees</td>
+                <td>
+                 { assignees.length ===0 ? "No Assignees" : (assignees.map((assignees,index) => 
+                  (<ul  key={Math.random()}>
+                    <li >{assignees}</li>
+                  </ul>)))} 
+                </td>
+              </tr>
+              <tr>
+              <td></td>
+                <td>ReporterID</td>
+                <td>{issue.reporterId}</td>
+              </tr>
+              <tr>
+              <td></td>
+                <td>Priority</td>
+                <td>{issue.priority}</td>
+              </tr>
+              <tr>
+              <td></td>
+                <td>EstimateTracking</td>
+                <td>{issue.estimate} Hours</td>
+              </tr>
+              <tr>
+              <td></td>
+                <td>CreatedAt</td>
+                <td>{formatDateTimeConversational(issue.createdAt)}</td>
+              </tr>
+              <tr>
+              <td></td>
+                <td>UpdatedAt</td>
+                <td>{formatDateTimeConversational(issue.updatedAt)}</td>
+              </tr>
+            </tbody>
+        </table>
+        
+          {/* <Status issue={issue} updateIssue={updateIssue} />
           <AssigneesReporter issue={issue} updateIssue={updateIssue} projectUsers={projectUsers} />
           <Priority issue={issue} updateIssue={updateIssue} />
           <EstimateTracking issue={issue} updateIssue={updateIssue} />
-          <Dates issue={issue} />
+          <Dates issue={issue} /> */}
         </Right>
       </Content>
     </Fragment>
