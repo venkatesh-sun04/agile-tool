@@ -57,8 +57,10 @@ const ProjectBoardIssueDetails = ({
   };
   // console.log(issue);
   // const dataaa = issue.users;
-  const assignees = issue.users.map((e)=>e.name);
-    // console.log(assignees);
+  // const assignees = issue.users.map((e)=>e.name);
+  const assignees = issue.users;
+
+    console.log(assignees);
 
   return (
     <Fragment>
@@ -105,7 +107,7 @@ const ProjectBoardIssueDetails = ({
                 <td>
                  { assignees.length ===0 ? "No Assignees" : (assignees.map((assignees,index) => 
                   (<ul  key={Math.random()}>
-                    <li >{assignees}</li>
+                    <li >{assignees.name} {assignees.email}</li>
                   </ul>)))} 
                 </td>
               </tr>
@@ -137,11 +139,11 @@ const ProjectBoardIssueDetails = ({
             </tbody>
         </table>
         
-          {/* <Status issue={issue} updateIssue={updateIssue} />
+          <Status issue={issue} updateIssue={updateIssue} />
           <AssigneesReporter issue={issue} updateIssue={updateIssue} projectUsers={projectUsers} />
           <Priority issue={issue} updateIssue={updateIssue} />
           <EstimateTracking issue={issue} updateIssue={updateIssue} />
-          <Dates issue={issue} /> */}
+          <Dates issue={issue} />
         </Right>
       </Content>
     </Fragment>

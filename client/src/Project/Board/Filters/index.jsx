@@ -22,6 +22,7 @@ const propTypes = {
 const ProjectBoardFilters = ({ projectUsers, defaultFilters, filters, mergeFilters }) => {
   const { searchTerm, userIds, myOnly, recent } = filters;
   const areFiltersCleared = !searchTerm && userIds.length === 0 && !myOnly && !recent;
+  console.log("React Application");
   // console.log(projectUsers,filters,mergeFilters);
   
   const handleSelectChange = (event) =>{
