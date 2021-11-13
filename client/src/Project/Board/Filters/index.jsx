@@ -23,7 +23,7 @@ const ProjectBoardFilters = ({ projectUsers, defaultFilters, filters, mergeFilte
   const { searchTerm, userIds, myOnly, recent } = filters;
 
   const areFiltersCleared = !searchTerm && userIds.length === 0 && !myOnly && !recent;
-
+  console.log("React Application");
   return (
     <Filters data-testid="board-filters">
       <SearchInput
